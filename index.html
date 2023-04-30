@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>draft.movie | Generate film ideas instantly.</title>
+    <script src="ChatGPT.js?v=12"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>.flex-container {
+  display: flex;
+  align-items: center;
+        height: 100%;
+}
+
+textarea {
+  flex: 1; /* This ensures the textarea takes up all available horizontal space */
+}
+
+button {
+  margin-left: 10px; /* Add some space between the textarea and the button */
+    
+}
+</style>
+    <!-- css.gg -->
+<link href='https://css.gg/css' rel='stylesheet'>
+
+<!-- UNPKG -->
+<link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
+
+<!-- JSDelivr -->
+<link href='https://cdn.jsdelivr.net/npm/css.gg/icons/all.css' rel='stylesheet'>
+
+</head>
+<body onload="OnLoad()">
+
+    <div id="idContainer">
+<center><img width="55%" src="draft.png">
+        <p>Make a film.</p></center>
+        
+
+       <center> <br><div>
+            
+           <select id="number">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+           
+            <select id="format">
+                <option value="loglines">Logline(s)</option>
+                <option value="titles">Title(s)</option>
+                <option value="plot summary, with suggestions for how it would work well for this specific format,">Plot Summary</option>
+                <option value="example of a plot written into the structure of Dan Harmons story circle, split into parts labelled You, Need, Go, Search, Find, Take, Return and Change (write only one line for each),">Dan Harmon's Story Circle</option>
+                <option value="options for a plot split into three acts, labelled 'Setup:', 'Conflict:' and 'Resolution:'">3 Act Structure</option>
+                <option value="beatsheet">Beatsheet</option>
+                <option value="script of scene 1, using conventional screenplay formatting">Scene 1 Script</option>
+            </select>
+            
+            <select id="length">
+                <option value="short film">Short Film</option>
+                <option value="feature film">Feature Film</option>
+                <option value="TV series">TV Series</option>
+                <option value="web series">Web Series</option>
+                <option value="documentary">Documentary</option>
+                <option value="animation">Animation</option>
+                <option value="music video">Music Video</option>
+                <option value="TV commercial">TV Commercial</option>
+                <option value="experimental">Experimental Film</option>
+                <option value="stage play">Stage Play</option>
+            </select>
+            
+            <select id="genre">
+                <option value="comedy (like hilarious, top tier humor)">Comedy</option>
+                <option value="action (like Michael Bay)">Action</option>
+                <option value="thriller (intense, high energy blockbuster)">Thriller</option>
+                <option value="horror (terrifying, scariest movie ever)">Horror</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="romance">Romance</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="mystery">Mystery</option>
+                <option value="adventure">Adventure</option>
+            </select>
+            
+            
+            
+            
+            <label id="lblMute">
+  <input id="chkMute" type="checkbox" onclick="Mute(this.checked)" checked />Mute
+</label>
+            
+            
+
+            
+            <p hidden>
+                <label id="lblSpeak"><input id="chkSpeak" type="checkbox" onclick="SpeechToText()"/>Listen</label>
+
+            <select id="selModel">
+                <option value="text-davinci-003">text-davinci-003</option>
+               <!-- <option value="text-davinci-002">text-davinci-002</option>
+                <option value="code-davinci-002">code-davinci-002</option> -->
+            </select>
+
+           <select id="selLang" onchange="ChangeLang(this)">
+                <option value="en-US">English (United States)</option>
+               <!-- <option value="fr-FR">French (France)</option>
+                <option value="ru-RU">Russian (Russia)</option>
+                <option value="pt-BR">Portuguese (Brazil)</option>
+                <option value="es-ES">Spanish (Spain)</option>
+                <option value="de-DE">German (Germany)</option>
+                <option value="it-IT">Italian (Italy)</option>
+                <option value="pl-PL">Polish (Poland)</option>
+                <option value="nl-NL">Dutch (Netherlands)</option> -->
+            </select>  
+
+            <select id="selVoices"></select></p>
+        </div> </center>
+        <br>
+        <div class="flex-container">
+            <textarea id="txtMsg" rows="5" wrap="soft" style="width: 98%; margin-left: 3px; margin-top: 6px" placeholder="A wizard orphan that lives under a staircase..."></textarea><button type="button" onclick="Send()" id="btnSend" style="height: 60px; vertical-align: middle;"><i class="gg-pen"></i></button></div>
+        <br><br>
+
+         <div class="flex-container">
+             <textarea id="txtOutput" rows="10" style="margin-top: 10px; width: 100%;" placeholder="Your blank page ends here."></textarea><button id="btnCopyToClipboard" type="button" onclick="copyToClipboard()"><center><i class="gg-clipboard" style="top: 0px;"></i></center></button></div>
+        
+        <div id="idText"></div>
+        
+        
+        
+    </div>
+
+</body>
+    
+    <script>document.getElementById('format').addEventListener('change', function() {
+  const numberSelect = document.getElementById('number');
+  const formatSelect = document.getElementById('format');
+
+  if (formatSelect.value.includes('plot summary') || formatSelect.value.includes('beatsheet') || formatSelect.value.includes('scene 1') || formatSelect.value.includes('Harmon')) {
+    numberSelect.style.display = 'none';
+    numberSelect.value = '1';
+  } else {
+    numberSelect.style.display = '';
+  }
+});
+</script>
+</html>
+

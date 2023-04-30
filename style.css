@@ -1,0 +1,120 @@
+/* style.css */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+    background: linear-gradient(0.25turn, #000000, #292929);
+}
+
+#idContainer {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+textarea {
+    background-color: #2c2f3a;
+    color: #ffffff;
+    border: 1px solid #3c3f4a;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    outline: none;
+    resize: vertical;
+}
+
+button {
+    background-color: #3c3f4a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #4c4f5a;
+}
+
+label {
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+select {
+    background-color: #2c2f3a;
+    color: #ffffff;
+    border: 1px solid #3c3f4a;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 16px;
+    margin-left: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+option {
+    background-color: #2c2f3a;
+    color: #ffffff;
+    padding: 6px 8px;
+}
+
+option:hover {
+    background-color: #3c3f4a;
+}
+
+#idText {
+    display: none;
+}
+
+#btnSend {
+    background: linear-gradient(#2C0CBC, #F000B2);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    outline: none;
+    opacity: 0.6;
+    width: 50px;
+  transition: 0.3s;
+}
+
+#btnSend:hover {
+    opacity: 1;
+}
+
+#btnCopyToClipboard {
+    background-color: #3c3f4a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    outline: none;
+    width: 50px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#btnCopyToClipboard:hover {
+    background-color: #4c4f5a;
+}
